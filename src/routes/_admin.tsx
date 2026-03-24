@@ -1,11 +1,9 @@
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router'
 import AdminLayout from '@/components/layout/AdminLayout'
-import { authClient } from '@/lib/auth-client'
 
 export const Route = createFileRoute('/_admin')({
-  beforeLoad: async () => {
-    const { data } = await authClient.getSession()
-    if (!data?.session) throw redirect({ to: '/login' })
+  beforeLoad: ({ context }) => {
+    if (!context.session?.session) throw redirect({ to: '/login', search: { error: undefined } })
   },
   component: AdminRoot,
 })

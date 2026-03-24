@@ -60,7 +60,7 @@ export function LeadsPage() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-xl font-bold">Leads</h1>
-          <p className="text-sm text-muted-foreground">{data?.data?.total ?? 0} total across all organizations</p>
+          <p className="text-sm text-muted-foreground">{data?.total ?? 0} total across all organizations</p>
         </div>
       </div>
 
