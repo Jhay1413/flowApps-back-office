@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const apiClient = axios.create({
-  baseURL: '/api/admin',
+  baseURL: `${import.meta.env.VITE_API_URL ?? ''}/api/admin`,
   withCredentials: true, // sends better-auth session cookie
 })
 
